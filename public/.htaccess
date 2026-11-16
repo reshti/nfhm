@@ -1,0 +1,69 @@
+# ====================================================================
+# منصة «نفهم» التوعوية باضطراب طيف التوحد (جامعة الإمام عبدالرحمن بن فيصل)
+# ملف إعدادات خادم Apache الشامل والمستقل (لوحة cPanel / Apache 2.4+ / CloudLinux)
+# متوافق تماماً مع: الجذر (Root /)، المجلدات الفرعية (/asd/ أو /programs/nafham/)
+# شعار المنصة: «لأن الفهم بداية التقبل» | هوية: «مجرد أثر بصمة»
+# ====================================================================
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # التوافق مع المجلدات الفرعية تلقائياً دون فرض RewriteBase ثابت
+  # إذا كان الملف أو المجلد موجوداً فعلياً على القرص (ملفات الأصول والصور والفيديوهات)، اخدمه مباشرة
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # استثناء مسارات الـ API لتمريرها إلى خادم Node.js
+  RewriteCond %{REQUEST_URI} (/api/|/api$) [NC]
+  RewriteRule ^ - [L]
+
+  # توجيه جميع المسارات الأخرى (مثل /admincp و /install) إلى ملف index.html للـ SPA
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# تفعيل تدفق الفيديو واستئناف التحميل (Byte-Range HTTP 206 Streaming)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(mp4|webm|ogv)$">
+    Header set Accept-Ranges bytes
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </FilesMatch>
+
+  # التخزين المؤقت للأصول والخطوط والصور لتحقيق سرعة فائقة
+  <FilesMatch "\.(ico|jpg|jpeg|png|gif|svg|webp|woff|woff2|ttf|eot)$">
+    Header set Cache-Control "max-age=31536000, public"
+  </FilesMatch>
+</IfModule>
+
+# تعريف أنواع الوسائط (MIME Types) بدقة لمنع أخطاء المتصفح (404/500/No Supported Sources)
+<IfModule mod_mime.c>
+  AddType video/mp4 .mp4
+  AddType video/webm .webm
+  AddType image/svg+xml .svg
+  AddType image/webp .webp
+  AddType application/javascript .js
+  AddType text/css .css
+  AddType application/json .json
+  AddType application/manifest+json .webmanifest
+  AddType font/woff2 .woff2
+</IfModule>
+
+# تفعيل ضغط البيانات لتسريع التحميل
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# حماية الملفات الحساسة متوافقة مع Apache 2.4 و Apache 2.2 دون خطأ 500
+<IfModule mod_authz_core.c>
+  <FilesMatch "(database-config\.json|installed\.json|\.env|\.sql)$">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+<IfModule !mod_authz_core.c>
+  <FilesMatch "(database-config\.json|installed\.json|\.env|\.sql)$">
+    Order allow,deny
+    Deny from all
+  </FilesMatch>
+</IfModule>

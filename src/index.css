@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --nafham-navy: #0a4d7a;
+    --nafham-blue: #0c6aa7;
+    --nafham-deep: #05528f;
+    --nafham-cyan: #2eb9df;
+    --nafham-sky: #41a4cb;
+    --nafham-bg: #f2f8fc;
+    --nafham-text: #304254;
+  }
+
+  body {
+    font-family: 'Tajawal', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--nafham-bg);
+    color: var(--nafham-text);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eef5fa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c3d9e8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9bc0db;
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+.animate-float {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 4px 14px 0 rgba(12, 106, 167, 0.25);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px 2px rgba(46, 185, 223, 0.45);
+  }
+}
+
+/* High Contrast Mode for Visually Challenged Users (WCAG AAA) */
+body.high-contrast-mode,
+.high-contrast-mode {
+  --nafham-bg: #000000 !important;
+  --nafham-text: #ffffff !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.high-contrast-mode * {
+  border-color: #facc15 !important;
+}
+
+.high-contrast-mode p,
+.high-contrast-mode span,
+.high-contrast-mode li {
+  font-weight: 600 !important;
+  letter-spacing: 0.015em !important;
+}
+
+.high-contrast-mode h1,
+.high-contrast-mode h2,
+.high-contrast-mode h3,
+.high-contrast-mode h4,
+.high-contrast-mode h5,
+.high-contrast-mode h6 {
+  color: #facc15 !important; /* Bright accessible yellow */
+  font-weight: 900 !important;
+}
+
+.high-contrast-mode .bg-white,
+.high-contrast-mode .bg-white\/95,
+.high-contrast-mode .bg-white\/90,
+.high-contrast-mode .bg-white\/80,
+.high-contrast-mode .bg-slate-50,
+.high-contrast-mode .bg-\[\#f2f8fc\],
+.high-contrast-mode .bg-\[\#f0f7fb\],
+.high-contrast-mode .bg-\[\#fafcfe\],
+.high-contrast-mode .bg-\[\#e1eff8\],
+.high-contrast-mode .bg-slate-100 {
+  background-color: #0d131f !important;
+  color: #ffffff !important;
+  border: 2px solid #facc15 !important;
+}
+
+.high-contrast-mode button {
+  border: 2px solid #facc15 !important;
+  font-weight: 800 !important;
+}
+
+.high-contrast-mode a,
+.high-contrast-mode .text-\[\#0a4d7a\],
+.high-contrast-mode .text-\[\#0c6aa7\] {
+  color: #38bdf8 !important; /* High-contrast cyan */
+}
+
+.high-contrast-mode .text-slate-500,
+.high-contrast-mode .text-slate-600,
+.high-contrast-mode .text-slate-700 {
+  color: #f1f5f9 !important;
+}
+
+/* Victory Celebrations: Balloons Rising Animation */
+@keyframes balloonRise {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(-35vh) translateX(15px) rotate(4deg);
+  }
+  60% {
+    transform: translateY(-75vh) translateX(-18px) rotate(-4deg);
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-130vh) translateX(10px) rotate(3deg);
+    opacity: 0;
+  }
+}
+
+.animate-balloon-rise {
+  animation: balloonRise 3.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Fireworks Burst Animation */
+@keyframes fireworkBurst {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    transform: scale(0.6);
+  }
+  60% {
+    opacity: 0.9;
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-firework-burst {
+  animation: fireworkBurst 1.8s ease-out forwards;
+}
+
+/* Autism Awareness Floating Puzzle Pieces */
+@keyframes puzzleFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-12px) rotate(6deg);
+  }
+  66% {
+    transform: translateY(8px) rotate(-5deg);
+  }
+}
+
+.animate-puzzle-float {
+  animation: puzzleFloat 6s ease-in-out infinite;
+}
+
+

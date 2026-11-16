@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مبادرة نفهم | رحلة توعوية حول طيف التوحد</title>
+    <meta name="description" content="مبادرة نفهم لنشر الوعي حول اضطراب طيف التوحد، وتعزيز فهم المجتمع للأشخاص ذوي التوحد واحتياجاتهم، وتصحيح المفاهيم الخاطئة." />
+    <meta property="og:title" content="مبادرة نفهم | رحلة توعوية حول طيف التوحد" />
+    <meta property="og:description" content="معًا ننشر الوعي ونصنع فرقًا يبدأ بالفهم. رحلة تفاعلية متكاملة للتعريف بطيف التوحد وقواعد التعامل الإيجابي." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./assets/media/2a5ff57792804303d5ccab065dbeef27.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0c6aa7" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="نفهم" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" type="image/png" href="./assets/images/e53c4bd8da5e491d9ab09e7cf0daf874.png" />
+    <link rel="apple-touch-icon" href="./assets/images/725b756a69a7d4c235070e51acd85560.png" />
+    <script>
+      (function() {
+        // Dynamic Universal Subpath Discovery
+        var path = window.location.pathname || '/';
+        var routes = ['/admincp', '/admin', '/install', '/cinematic', '/showcase', '/games', '/library', '/challenge', '/adventure'];
+        var detectedBase = '';
+        for (var i = 0; i < routes.length; i++) {
+          var idx = path.indexOf(routes[i]);
+          if (idx !== -1) {
+            detectedBase = path.substring(0, idx);
+            break;
+          }
+        }
+        if (!detectedBase && path !== '/' && path.indexOf('.') === -1) {
+          detectedBase = path.replace(/\/+$/, '');
+        }
+        window.__NAFHAM_BASE__ = detectedBase;
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="./assets/index-BoGtRNyK.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-C25Gzi0t.css">
+  </head>
+  <body class="bg-[#f2f8fc] text-[#304254] font-['Tajawal',sans-serif] antialiased selection:bg-[#2eb9df]/20 selection:text-[#0a4d7a] overflow-x-hidden min-h-screen">
+    <div id="root"></div>
+  </body>
+</html>

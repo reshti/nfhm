@@ -1,0 +1,27 @@
+{
+  "id": "./",
+  "name": "مبادرة نفهم | رحلة توعوية حول طيف التوحد",
+  "short_name": "نفهم",
+  "description": "مبادرة نفهم لنشر الوعي حول اضطراب طيف التوحد وتعزيز فهم المجتمع وتصحيح المفاهيم الخاطئة.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2f8fc",
+  "theme_color": "#0c6aa7",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons": [
+    {
+      "src": "./assets/images/e53c4bd8da5e491d9ab09e7cf0daf874.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/media/2a5ff57792804303d5ccab065dbeef27.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

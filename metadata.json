@@ -1,0 +1,6 @@
+{
+  "name": "مبادرة نفهم | رحلة توعوية حول طيف التوحد",
+  "description": "مبادرة نفهم لنشر الوعي حول اضطراب طيف التوحد وتعزيز فهم المجتمع وتصحيح المفاهيم الخاطئة من خلال رحلة تفاعلية متكاملة.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
